@@ -43,8 +43,10 @@ umain(void)
 
 	if ((pid=fork()) < 0)
 		user_panic("fork: %e", i);
-
+	//writef("fuck\n");
+	//writef("pid: %d\n",pid);
 	if (pid == 0) {
+	//	writef("fuck2\n");
 		close(p[0]);
 		for(;;){
 			writef(".");

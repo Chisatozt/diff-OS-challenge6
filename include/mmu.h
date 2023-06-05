@@ -39,6 +39,7 @@
 #define PTE_COW		0x0001	// Copy On Write
 #define PTE_UC		0x0800	// unCached
 #define PTE_LIBRARY		0x0004	// share memmory
+#define PTE_FORK	0x0008 // share memmory only in fork
 /*
  * Part 2.  Our conventions.
  */
@@ -121,8 +122,9 @@
 #define E_BAD_PATH	10	// Bad path
 #define E_FILE_EXISTS	11	// File already exists
 #define E_NOT_EXEC	12	// File not a valid executable
+#define E_DIR_NOT_EXIST    13
 
-#define MAXERROR 12
+#define MAXERROR 13
 
 #ifndef __ASSEMBLER__
 

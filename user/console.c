@@ -51,9 +51,11 @@ cons_read(struct Fd *fd, void *vbuf, u_int n, u_int offset)
 //	printf("got into cons_read");
 	if (n == 0)
 		return 0;
-
-	while ((c = syscall_cgetc()) == 0)
+//	writef("1\n");
+	while ((c = syscall_cgetc()) == 0) {
+	//	writef("1\n");
 		syscall_yield();
+	}
 
 	if (c!='\r') 
 		writef("%c",c);

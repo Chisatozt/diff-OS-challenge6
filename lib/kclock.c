@@ -9,8 +9,10 @@
 extern void set_timer();
 
 /*** exercise 3.14 ***/
-void kclock_init(void) {
-    // hint: use set_timer()
-    set_timer();
+void
+kclock_init(void)
+{
+	// hint: use set_timer()
+	set_timer();
 }
 

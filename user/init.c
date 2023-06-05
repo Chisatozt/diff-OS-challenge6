@@ -64,9 +64,22 @@ umain(int argc, char **argv)
 		user_panic("dup: %d", r);
 
 write(1,"LALA",4);
-
+//new add
+	user_create("/.history", 0);
+	user_create("/shellId", 0);
+	int fd;
 	for (;;) {
 		writef("init: starting sh\n");
+    	if ((fd = open("/shellId", O_RDWR)) < 0)
+      	  user_panic("open %s: error in init.c\n", fd);
+    	if ((r = seek(fd, 0)) < 0) {
+        	user_panic("error in seek in init.c\n");
+    	}
+    	r = write(fd, "0", 1);
+    	if (r < 0) {
+        	user_panic("error in writeback in init.c\n");
+    	}
+    	close(fd);
 		r = spawnl("sh.b", "sh", (char*)0);
 		if (r < 0) {
 			writef("init: spawn sh: %e\n", r);

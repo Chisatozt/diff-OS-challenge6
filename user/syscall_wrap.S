@@ -5,8 +5,7 @@
 /*** exercise 4.1 ***/
 LEAF(msyscall)
     // TODO: you JUST need to execute a `syscall` instruction and return from msyscall
-    syscall
-    nop
-    jr		ra
-    nop
+	syscall
+	jr ra
+	nop
 END(msyscall)
